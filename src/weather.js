@@ -1,21 +1,24 @@
-export default class Weather {
-  constructor(city, state) {
-    this.apiKey = '768f6969abc4420f8f6969abc4f20f8b';
-    this.city = city;
-    this.state = state;
-  }
+/* eslint-disable import/no-cycle, import/no-cycle, import/prefer-default-export */
+import { insertData, changeAppearance } from './ui';
 
-  // fetch weather
-  async getWeather() {
-    const response = await fetch(`http://api.wunderground.com/api/${this.apiKey}/conditions/q/${this.state}/${this.city}.json`,
-      { mode: 'no-cors', credentials: 'include' });
-    const responseData = await response.json();
-    return responseData.current_observation;
-  }
+const fetchWeatherData = (location = 'Cairo', units = 'metric') => {
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=${units}&APPID=c0200200bfb501d04806a813e7fcf708`;
 
-  // change weather location
-  changeLocation(city, state) {
-    this.city = city;
-    this.state = state;
+  async function getData() {
+    const response = await fetch(url, { mode: 'cors' });
+    const weatherData = await response.json();
+    const symbol = units === 'metric' ? ' °C' : ' °F';
+    const data = {
+      temp: Math.round(weatherData.main.temp) + symbol,
+      location,
+    };
+    insertData(data);
+    changeAppearance(weatherData.main.temp, units);
   }
-}
+  getData();
+};
+
+fetchWeatherData();
+
+export { fetchWeatherData };
+/* eslint-enable import/no-cycle, import/no-cycle, import/prefer-default-export */

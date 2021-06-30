@@ -1,24 +1,52 @@
-export default class UI {
-  constructor() {
-    this.location = document.getElementById('w-location');
-    this.desc = document.getElementById('w-desc');
-    this.string = document.getElementById('w-string');
-    this.details = document.getElementById('w-details');
-    this.icon = document.getElementById('w-icon');
-    this.humidity = document.getElementById('w-humidity');
-    this.feelsLike = document.getElementById('w-feels-like');
-    this.dewpoint = document.getElementById('w-dewpoint');
-    this.wind = document.getElementById('w-wind');
-  }
+/* eslint-disable import/no-cycle */
+import { fetchWeatherData } from './weather';
+/* eslint-enable import/no-cycle */
 
-  paint(weather) {
-    this.location.textContent = weather.display_location.full;
-    this.desc.textContent = weather.weather;
-    this.string.textContent = weather.temperature_string;
-    this.icon.setAttribute('src', weather.icon_url);
-    this.humidity.textContent = `Relative Humidity: ${weather.relative_humidity}`;
-    this.feelsLike.textContent = `Feels Like: ${weather.feelsLike_string}`;
-    this.dewpoint.textContent = `Dewpoint: ${weather.dewpoint_string}`;
-    this.wind.textContent = `Wind: ${weather.wind_string}`;
+const insertData = (data) => {
+  const tempDiv = document.getElementById('temp');
+  tempDiv.innerHTML = `It's ${data.temp}`;
+  const locationDiv = document.getElementById('location');
+  locationDiv.innerHTML = `in ${data.location}`;
+};
+
+const changeTextColor = (color) => {
+  document.getElementById('temp').style.color = color;
+};
+
+const changeAppearance = (temp, units) => {
+  if (units === 'metric') {
+    if (temp < 10) {
+      changeTextColor('blue');
+    } else if (temp >= 10 && temp < 15) {
+      changeTextColor('yellow');
+    } else {
+      changeTextColor('red');
+    }
+  } else if (temp < 50) {
+    changeTextColor('blue');
+  } else if (temp >= 50 && temp < 59) {
+    changeTextColor('yellow');
+  } else {
+    changeTextColor('red');
   }
-}
+};
+
+const locationField = document.getElementById('location-input');
+locationField.onchange = () => {
+  const locationField = document.getElementById('location-input').value;
+  const unitSelection = document.querySelector('input[name="unit"]:checked')
+    .value;
+  fetchWeatherData(locationField, unitSelection);
+};
+
+const unitsFieldset = document.getElementById('units');
+unitsFieldset.onchange = () => {
+  const locationField = document.getElementById('location-input').value;
+  const unitSelection = document.querySelector('input[name="unit"]:checked')
+    .value;
+  if (locationField !== '') {
+    fetchWeatherData(locationField, unitSelection);
+  }
+};
+
+export { insertData, changeAppearance };
