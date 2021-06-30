@@ -4,9 +4,9 @@ import { fetchWeatherData } from './weather';
 
 const insertData = (data) => {
   const tempDiv = document.getElementById('temp');
-  tempDiv.innerHTML = `It's ${data.temp}`;
+  tempDiv.innerHTML = `It's ${data.temp} Now`;
   const locationDiv = document.getElementById('location');
-  locationDiv.innerHTML = `in ${data.location}`;
+  locationDiv.innerHTML = `In ${data.location}`;
 };
 
 const changeTextColor = (color) => {
