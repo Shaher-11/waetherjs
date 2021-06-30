@@ -3,21 +3,24 @@
 
 # Fabulous-tours
 
-> This project built for a travel agency specialized in outdoors trips and adventures the project built entirely  with HTML, CSS, and SASS.
+> The Weather app is a simple weather application that helps users to know the current weather status in Celsius as well as Fahrenheit.
 
-
-![screenshot](./img/fabulous.png)
+![screenshot](app.png)
 
 ## Built With
 
 - HTML
 - Bootstrap
 - JavaScript
+- Open Weather API
 - Lots of love :heart:
 
 ## Live Demo
 
 [View Live](https://fabuloustours.netlify.app/)
+
+## Getting Started
+
 
 
 👤 **Shaher Shamroukh**
