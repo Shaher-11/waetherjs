@@ -1,5 +1,6 @@
 import _ from 'lodash';
-
+import Weather from './weather';
+import UI from './ui';
 
 // Init weather object
 const weather = new Weather('Boston', 'MA');

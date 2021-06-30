@@ -1,14 +1,14 @@
-class UI {
+export default class UI {
   constructor() {
-    this.location = document.getElementsById('w-location');
-    this.desc = document.getElementsById('w-desc');
-    this.string = document.getElementsById('w-string');
-    this.details = document.getElementsById('w-details');
-    this.icon = document.getElementsById('w-icon');
-    this.humidity = document.getElementsById('w-humidity');
-    this.feelsLike = document.getElementsById('w-feels-like');
-    this.dewpoint = document.getElementsById('w-dewpoint');
-    this.wind = document.getElementsById('w-wind');
+    this.location = document.getElementById('w-location');
+    this.desc = document.getElementById('w-desc');
+    this.string = document.getElementById('w-string');
+    this.details = document.getElementById('w-details');
+    this.icon = document.getElementById('w-icon');
+    this.humidity = document.getElementById('w-humidity');
+    this.feelsLike = document.getElementById('w-feels-like');
+    this.dewpoint = document.getElementById('w-dewpoint');
+    this.wind = document.getElementById('w-wind');
   }
 
   paint(weather) {
