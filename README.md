@@ -24,10 +24,21 @@
 To get a local copy of the repository please run the following commands on your terminal:
 
 ```git@github.com:Shaher-11/waetherjs.git```
+
 ```cd waetherjs```
+
 ```npm install```
+
 ```npm run build```
 
+
+## Prerequisites
+
+- [Visit](https://openweathermap.org/)
+- Sign Up for free
+- Copy the API key which will be sent your email
+- Add the key to the weather.js file
+- Open the app and enter the city name
 
 👤 **Shaher Shamroukh**
  
