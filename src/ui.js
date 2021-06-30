@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 import { fetchWeatherData } from './weather';
-/* eslint-enable import/no-cycle */
 
 const insertData = (data) => {
   const tempDiv = document.getElementById('temp');
