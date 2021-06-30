@@ -1,12 +1,5 @@
 import _ from 'lodash';
 
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['getting', 'started'], ' ');
-
-  return element;
+if (1 > 2) {
+  console.log('hii');
 }
-
-document.body.appendChild(component());
