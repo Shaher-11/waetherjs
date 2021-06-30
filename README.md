@@ -21,6 +21,12 @@
 
 ## Getting Started
 
+To get a local copy of the repository please run the following commands on your terminal:
+
+```git@github.com:Shaher-11/waetherjs.git```
+```cd waetherjs```
+```npm install```
+```npm run build```
 
 
 👤 **Shaher Shamroukh**
