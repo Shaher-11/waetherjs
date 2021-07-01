@@ -1,0 +1,29 @@
+
+
+.input::placeholder {
+  color: rgb(26, 202, 26);
+  font-weight: bold;
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.lead {
+  font-size: 18px;
+}
+
+.toggleMe {
+  display: block;
+}
+
+.fahr {
+  display: none;
+}
+
+.img {
+  border: 2px solid black;
+  height: 200px;
+  display: none;
+  margin: auto;
+}
