@@ -17,7 +17,7 @@
 
 ## Live Demo
 
-[View Live](https://fabuloustours.netlify.app/)
+[View Live](https://condescending-bartik-4ead95.netlify.app/)
 
 ## Getting Started
 
