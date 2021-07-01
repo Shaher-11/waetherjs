@@ -7,8 +7,7 @@ const infoText = document.querySelector('.info-text');
 
 const toCelsius = (kelvin) => (kelvin - 273.15).toFixed(1);
 
-// eslint-disable-next-line no-mixed-operators
-const toFahr = (kelvin) => ((kelvin - 273.15) * 9 / 5 + 32).toFixed(1);
+const toFahr = (kelvin) => ((kelvin - 273.15) * (9 / 5) + 32).toFixed(1);
 
 const toKmPerHour = (speed) => (speed * 3.6).toFixed(1);
 
