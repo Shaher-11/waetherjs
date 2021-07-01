@@ -25,4 +25,55 @@ search.addEventListener('click', () => {
             <p class='lead '>Humidity: ${data.main.humidity} %</p>
             <p class='lead '>Wind speed: ${toKmPerHour(data.wind.speed)} km/h</p>   
             `;
-     
+      const fahrBtn = document.querySelector('.fahrBtn');
+      const celsBtn = document.querySelector('.celsBtn');
+      const fahr = document.querySelectorAll('.fahr');
+
+      const cels = document.querySelectorAll('.cels');
+
+      const arr = Array.from(fahr);
+      console.log(arr);
+
+      fahrBtn.addEventListener('click', () => {
+        if (arr.every((f) => f.style.display === 'none') || arr.every((f) => f.style.display === '')) {
+          fahrBtn.textContent = 'To Celsius';
+          fahr.forEach((f) => {
+            f.style.display = 'block';
+          });
+          cels.forEach((f) => {
+            f.style.display = 'none';
+          });
+        } else {
+          fahrBtn.textContent = 'To Fahrenheit';
+          cels.forEach((f) => {
+            f.style.display = 'block';
+          });
+          fahr.forEach((f) => {
+            f.style.display = 'none';
+          });
+        }
+      });
+
+      img.style.display = 'flex';
+      if (data.main.temp > 300) {
+        img.src = 'images/hot.webp';
+        infoText.innerText = 'It is hot outside, go swimming!';
+      } else if (data.main.temp > 290) {
+        img.src = 'images/walk.jpeg';
+        infoText.innerText = 'It is nice outside, Take a walk!';
+      } else {
+        img.src = 'images/cold.jpg';
+        infoText.innerText = 'It is cold outside, Say Home';
+      }
+    })
+
+    .catch(() => {
+      temp.innerText = 'Oops City not found! Please check if you typed it correctly.';
+    });
+  input.value = '';
+  temp.innerHTML = '';
+  img.innerHTML = '';
+  cityName.innerHTML = '';
+  infoText.innerText = '';
+  img.style.display = 'none';
+});
